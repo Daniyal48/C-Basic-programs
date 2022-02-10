@@ -4,9 +4,10 @@
 //This code will ask the user for the input of choixe table and will keep running until four entries are made. so that the
 //gets the exact table he/she wants then as if the user want to continue or not. and same process will repeat until the user exits.
 //Known issues: infite loop while a character is entered. Working on the issue and I will update the code in my repository if some is interested so they can look up to it.
-//This will be the first program in C++. in my github repository is plagiarism is detecected it will be my repository.
+//This will be the first program in C++. in my github repository if plagiarism is detecected it will be my repository.
 //Github: https://www.github.com/Daniyal48/
 #include <iostream>
+#include <time.h>
 using namespace std;
 void and_table()
 {
@@ -186,8 +187,12 @@ void NAND_table()
 }
 int main()
 {
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
     while (true)
     {
+        
         cout<<"Please enter your choice for the truth table \"AND\" , \"OR\" , \"NAND\" or \"XOR\" "<<endl;
         string choice;
         cin>>choice;
@@ -236,5 +241,9 @@ int main()
             break;
         }
     }
+
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    cout<<"Time taken: "<<cpu_time_used<<" seconds"<<endl;
     return 0;
 }
